@@ -7,5 +7,5 @@ interface ClientProviderProps {
 }
 
 export default function ClientProvider({ children }: ClientProviderProps) {
-  return <SessionProvider> {children} </SessionProvider>;
+  return <SessionProvider>{children}</SessionProvider>;
 }
