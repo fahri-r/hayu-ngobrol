@@ -1,4 +1,4 @@
-import PricingCard from "@/components/PricingCard";
+import CardContainer from "@/components/CardContainer";
 import React from "react";
 
 function PricingPage() {
@@ -41,7 +41,7 @@ function PricingPage() {
       </div>
       <div className="flow-root bg-white pb-24 sm:pb-32">
         <div className="-mt-80">
-          <PricingCard redirect={true} />
+          <CardContainer redirect={true} />
         </div>
       </div>
     </div>

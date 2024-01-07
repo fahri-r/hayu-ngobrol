@@ -1,5 +1,5 @@
 import { authOptions } from "@/auth";
-import PricingCard from "@/components/PricingCard";
+import CardContainer from "@/components/CardContainer";
 import { getServerSession } from "next-auth";
 import React from "react";
 
@@ -35,7 +35,7 @@ async function RegisterPage() {
           </svg>
         </div>
       </div>
-      <PricingCard redirect={false} />
+      <CardContainer redirect={false} />
     </div>
   );
 }

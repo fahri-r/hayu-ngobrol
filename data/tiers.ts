@@ -1,4 +1,4 @@
-const tier = [
+const tiers = [
   {
     name: "Starter",
     id: null,
@@ -31,4 +31,4 @@ const tier = [
   },
 ];
 
-export default tier;
+export default tiers;
