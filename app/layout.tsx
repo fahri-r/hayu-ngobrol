@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import ClientProvider from "@/components/ClientProvider";
+import { ThemeProvider } from "@/context/ThemeProvider";
+import ClientProvider from "@/context/ClientProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClientProvider>
-      <html lang="en">
-        <body className="flex flex-col min-h-screen">
+    <html lang="en">
+      <body className="flex flex-col min-h-screen">
+        <ClientProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -25,11 +25,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Header />
-
             {children}
           </ThemeProvider>
-        </body>
-      </html>
-    </ClientProvider>
+        </ClientProvider>
+      </body>
+    </html>
   );
 }
