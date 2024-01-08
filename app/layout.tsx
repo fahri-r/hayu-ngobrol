@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import ClientProvider from "@/context/ClientProvider";
+import FirebaseAuthProvider from "@/context/FirebaseAuthProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,20 +16,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="flex flex-col min-h-screen">
-        <ClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
-            {children}
-          </ThemeProvider>
-        </ClientProvider>
-      </body>
-    </html>
+    <ClientProvider>
+      <html lang="en">
+        <body className="flex flex-col min-h-screen">
+          <FirebaseAuthProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Header />
+              {children}
+            </ThemeProvider>
+          </FirebaseAuthProvider>
+        </body>
+      </html>
+    </ClientProvider>
   );
 }

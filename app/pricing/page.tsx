@@ -1,7 +1,7 @@
 import CardContainer from "@/components/CardContainer";
 import React from "react";
 
-function PricingPage() {
+async function PricingPage() {
   return (
     <div className="isolate overflow-hidden bg-gray-900">
       <div className="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8">
