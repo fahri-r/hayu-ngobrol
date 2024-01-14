@@ -16,6 +16,7 @@ import { signIn, signOut } from "next-auth/react";
 import { useSubscriptionStore } from "@/store/store";
 import LoadingSpinner from "./LoadingSpinner";
 import { StarIcon } from "lucide-react";
+import ManageAccountButton from "./ManageAccountButton";
 
 interface UserButtonProps {
   session: Session | null;
@@ -48,12 +49,12 @@ function UserButton({ session }: UserButtonProps) {
         {subscription?.role === "pro" && (
           <>
             <DropdownMenuLabel className="text-xs flex items-center justify-center space-x-1 text-[#E935C1] animate-pulse">
-              <StarIcon fill="#E935C1"/>
+              <StarIcon fill="#E935C1" />
               <p>PRO</p>
             </DropdownMenuLabel>
-            <DropdownMenuSeparator/>
+            <DropdownMenuSeparator />
             <DropdownMenuItem>
-              //Manage Account
+              <ManageAccountButton />
             </DropdownMenuItem>
           </>
         )}
