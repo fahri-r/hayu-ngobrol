@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import { serverTimestamp, setDoc } from "firebase/firestore";
 import { addChatRef } from "@/lib/converters/ChatMembers";
 
-function CreateChatButton({ isLarge }: { isLarge: boolean }) {
+function CreateChatButton({ isLarge = false }: { isLarge?: boolean }) {
   const { data: session } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);

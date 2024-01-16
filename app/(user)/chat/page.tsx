@@ -13,7 +13,6 @@ type ChatsPageProps = {
 };
 
 async function ChatsPage({ searchParams: { error } }: ChatsPageProps) {
-
   return (
     <div>
       <ChatList />
