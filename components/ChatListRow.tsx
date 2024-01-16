@@ -35,7 +35,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
       />
       <div className="flex-1">
         <p className="font-bold">
-          {!message && "New Chat"}
+          {!message && "New Chat "}
           {
             [(message && message?.user.name) || session?.user.name]
               .toString()
