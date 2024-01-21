@@ -42,12 +42,12 @@ export const useLanguageStore = create<LanguageState>()((set, get) => ({
 
     return Object.keys(LanguagesSupportedMap).slice(
       0,
-      2
+      3
     ) as LanguagesSupported[];
   },
   getNotSupportedLanguages: (isPro: boolean) => {
     if (isPro) return [];
-    return Object.keys(LanguagesSupportedMap).slice(2) as LanguagesSupported[];
+    return Object.keys(LanguagesSupportedMap).slice(3) as LanguagesSupported[];
   },
 }));
 
