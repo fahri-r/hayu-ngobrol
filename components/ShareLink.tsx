@@ -29,7 +29,7 @@ function ShareLink({
   const linkToChat =
     process.env.NODE_ENV === "development"
       ? `http://${host}/chat/${chatId}`
-      : `https://$(host)/chat/${chatId}`;
+      : `https://${host}/chat/${chatId}`;
 
   async function copyToClipboard() {
     try {
@@ -84,10 +84,8 @@ function ShareLink({
           </Button>
         </div>
         <DialogFooter className="sm:justify-start">
-          {" "}
           <DialogClose asChild>
             <Button type="button" variant="secondary">
-              {" "}
               Close
             </Button>
           </DialogClose>

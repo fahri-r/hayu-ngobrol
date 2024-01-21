@@ -2,9 +2,9 @@ import { Subscription } from "@/types/Subscription";
 import { create } from "zustand";
 
 export type LanguagesSupported =
+  | "en"
   | "id"
   | "su"
-  | "en"
   | "es"
   | "de"
   | "fr"
@@ -14,9 +14,9 @@ export type LanguagesSupported =
   | "ar";
 
 export const LanguagesSupportedMap: Record<LanguagesSupported, string> = {
+  en: "English",
   id: "Bahasa Indonesia",
   su: "Sundanese",
-  en: "English",
   es: "Spanish",
   de: "German",
   fr: "French",
