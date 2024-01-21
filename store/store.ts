@@ -2,22 +2,24 @@ import { Subscription } from "@/types/Subscription";
 import { create } from "zustand";
 
 export type LanguagesSupported =
+  | "id"
+  | "su"
   | "en"
   | "es"
   | "de"
   | "fr"
-  | "id"
   | "ja"
   | "ru"
   | "zh"
   | "ar";
 
 export const LanguagesSupportedMap: Record<LanguagesSupported, string> = {
+  id: "Bahasa Indonesia",
+  su: "Sundanese",
   en: "English",
   es: "Spanish",
   de: "German",
   fr: "French",
-  id: "Bahasa Indonesia",
   ja: "Japanese",
   ru: "Russian",
   zh: "Mandarin",
