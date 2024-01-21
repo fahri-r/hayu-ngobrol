@@ -1,4 +1,4 @@
-import { LanguagesSupported } from "./store/store";
+import { LanguagesSupported } from "./common/store/store";
 
 interface ChatConfigProps {
   TITLE: string;

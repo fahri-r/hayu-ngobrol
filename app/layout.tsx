@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import { ThemeProvider } from "@/context/ThemeProvider";
-import ClientProvider from "@/context/ClientProvider";
-import FirebaseAuthProvider from "@/context/FirebaseAuthProvider";
-import SubscriptionProvider from "@/context/SubscriptionProvider";
-import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "@/common/context/ThemeProvider";
+import ClientProvider from "@/common/context/ClientProvider";
+import FirebaseAuthProvider from "@/common/context/FirebaseAuthProvider";
+import SubscriptionProvider from "@/common/context/SubscriptionProvider";
+import { Toaster } from "@/common/components/ui/toaster";
 import ChatConfig from "@/chat.config";
+import Navbar from "@/common/components/Navbar";
 
 export const metadata: Metadata = {
   title: ChatConfig.TITLE,
@@ -30,7 +30,7 @@ export default function RootLayout({
                 enableSystem
                 disableTransitionOnChange
               >
-                <Header />
+                <Navbar />
                 {children}
                 <Toaster />
               </ThemeProvider>

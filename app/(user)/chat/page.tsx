@@ -1,6 +1,5 @@
 import ChatConfig from "@/chat.config";
-import ChatList from "@/components/ChatList";
-import ChatPermissionError from "@/components/ChatPermissionError";
+import Chats from "@/modules/chats";
 import { Metadata } from "next";
 import React from "react";
 
@@ -15,17 +14,8 @@ export const metadata: Metadata = {
   title: `Chats - ${ChatConfig.TITLE}`,
 };
 
-async function ChatsPage({ searchParams: { error } }: ChatsPageProps) {
-  return (
-    <div>
-      {error && (
-        <div className="m-2">
-          <ChatPermissionError />
-        </div>
-      )}
-      <ChatList />
-    </div>
-  );
+function ChatsPage({ searchParams: { error } }: ChatsPageProps) {
+  return <Chats error={error} />;
 }
 
 export default ChatsPage;
