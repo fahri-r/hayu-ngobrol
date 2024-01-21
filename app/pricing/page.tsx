@@ -1,5 +1,12 @@
+import ChatConfig from "@/chat.config";
 import CardContainer from "@/components/CardContainer";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: `Pricing - ${ChatConfig.TITLE}`,
+  description: "The right price for you, whoever you are",
+};
 
 async function PricingPage() {
   return (

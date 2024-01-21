@@ -1,4 +1,11 @@
+import ChatConfig from "@/chat.config";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: ChatConfig.TITLE,
+  description: "Chat with Anyone, anywhere!",
+};
 
 export default function Home() {
   return (

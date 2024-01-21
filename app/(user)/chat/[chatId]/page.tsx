@@ -9,12 +9,19 @@ import { getDocs } from "firebase/firestore";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
+import ChatConfig from "@/chat.config";
 
 type Props = {
   params: {
     chatId: string;
   };
 };
+
+export async function generateMetadata({ params: { chatId } }: Props) {
+  return {
+    title: `Chat#${chatId.substring(0, 4)} - ${ChatConfig.TITLE}`,
+  };
+}
 
 async function ChatPage({ params: { chatId } }: Props) {
   const session = await getServerSession(authOptions);

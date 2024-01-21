@@ -1,5 +1,6 @@
 import { Subscription } from "@/types/Subscription";
 import { create } from "zustand";
+import ChatConfig from "@/chat.config";
 
 export type LanguagesSupported =
   | "en"
@@ -34,7 +35,7 @@ interface LanguageState {
 }
 
 export const useLanguageStore = create<LanguageState>()((set, get) => ({
-  language: "en",
+  language: ChatConfig.DEFAULT_LANGUAGE,
   setLanguage: (language: LanguagesSupported) => set({ language }),
   getLanguages: (isPro: boolean) => {
     if (isPro)
@@ -42,12 +43,14 @@ export const useLanguageStore = create<LanguageState>()((set, get) => ({
 
     return Object.keys(LanguagesSupportedMap).slice(
       0,
-      3
+      ChatConfig.FREE_LANGUAGE_SUPPORTED
     ) as LanguagesSupported[];
   },
   getNotSupportedLanguages: (isPro: boolean) => {
     if (isPro) return [];
-    return Object.keys(LanguagesSupportedMap).slice(3) as LanguagesSupported[];
+    return Object.keys(LanguagesSupportedMap).slice(
+      ChatConfig.FREE_LANGUAGE_SUPPORTED
+    ) as LanguagesSupported[];
   },
 }));
 

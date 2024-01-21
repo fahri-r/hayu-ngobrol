@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Toggle } from "./ui/toggle";
+import ChatConfig from "@/chat.config";
 
 export default function DarkModeToggle() {
   const { setTheme } = useTheme();
@@ -11,7 +12,7 @@ export default function DarkModeToggle() {
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
-    setTheme(theme ?? "light");
+    setTheme(theme ?? ChatConfig.DEFAULT_THEME);
 
     if (theme === "dark") setIsDark(true);
   }, []);

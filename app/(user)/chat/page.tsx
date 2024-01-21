@@ -1,5 +1,7 @@
+import ChatConfig from "@/chat.config";
 import ChatList from "@/components/ChatList";
 import ChatPermissionError from "@/components/ChatPermissionError";
+import { Metadata } from "next";
 import React from "react";
 
 type ChatsPageProps = {
@@ -7,6 +9,10 @@ type ChatsPageProps = {
   searchParams: {
     error: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: `Chats - ${ChatConfig.TITLE}`,
 };
 
 async function ChatsPage({ searchParams: { error } }: ChatsPageProps) {

@@ -7,6 +7,7 @@ import { MessageSquareIcon } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
 import UpgradeBanner from "./UpgradeBanner";
 import LanguageSelect from "./LanguageSelect";
+import ChatConfig from "@/chat.config";
 
 async function Header() {
   const session = await getServerSession(authOptions);
@@ -15,7 +16,7 @@ async function Header() {
     <header className="sticky top-0 z-50 bg-white dark:bg-gray-900">
       <nav className="flex flex-col sm:flex-row items-center p-5 bg-white dark:bg-gray-900 max-w-7xl mx-auto">
         <Link href={"/"}>
-          <h1 className="font-bold text-3xl">Hayu Ngobrol</h1>
+          <h1 className="font-bold text-3xl">{ChatConfig.TITLE}</h1>
         </Link>
 
         <div className="flex flex-1 items-center justify-end space-x-4">

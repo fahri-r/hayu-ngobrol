@@ -2,6 +2,13 @@ import { authOptions } from "@/lib/auth";
 import CardContainer from "@/components/CardContainer";
 import { getServerSession } from "next-auth";
 import React from "react";
+import ChatConfig from "@/chat.config";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Register - ${ChatConfig.TITLE}`,
+  description: "Lets handle your Membership",
+};
 
 async function RegisterPage() {
   const session = await getServerSession(authOptions);
