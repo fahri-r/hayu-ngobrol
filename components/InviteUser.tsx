@@ -67,7 +67,7 @@ function InviteUser({ chatId }: { chatId: string }) {
       toast({
         title: "Free plan limit exceeded",
         description:
-          "You have exceeded the limit of users in a single chat for the FREE plan. Please upgrade to PRO to continue adding users to chats!",
+          "You have exceeded the limit of users in a single chat for the Free plan. Please upgrade to Pro to continue adding users to chats!",
         variant: "destructive",
         action: (
           <ToastAction

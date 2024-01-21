@@ -9,7 +9,7 @@ const tiers = [
       "20 Message Chat Limit in Chats",
       "2 Participant limit in Chat",
       "3 Chat Rooms limit",
-      "Supports 2 languages",
+      "Supports 3 languages",
       "48-hour support response time",
     ],
   },
@@ -17,7 +17,7 @@ const tiers = [
     name: "Pro",
     id: "pro",
     href: "#",
-    priceMonthly: "£5.99",
+    priceMonthly: "IDR 20,000",
     description: "Unlock the Full Potential with Pro!",
     features: [
       "Unlimited Messages in Chats",

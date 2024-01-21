@@ -56,14 +56,14 @@ function ChatInput({ chatId }: { chatId: string }) {
       toast({
         title: "Free plan limit exceeded",
         description:
-          "You've exceeded the FREE plan limit of 20 messages per chat. Upgrade to Pro for unlimited chat messages!",
+          "You've exceeded the Free plan limit of 20 messages per chat. Upgrade to Pro for unlimited chat messages!",
         variant: "destructive",
         action: (
           <ToastAction
             altText="Upgrade"
             onClick={() => router.push("/register")}
           >
-            Upgrade to PRO
+            Upgrade to Pro
           </ToastAction>
         ),
       });
@@ -98,7 +98,7 @@ function ChatInput({ chatId }: { chatId: string }) {
                 <FormControl>
                   <Input
                     className="border-none bg-transparent dark:placeholder:text-white/70"
-                    placeholder="Enter message in ANY language..."
+                    placeholder="Enter message in any language..."
                     {...field}
                   />
                 </FormControl>

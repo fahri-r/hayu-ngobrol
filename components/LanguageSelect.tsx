@@ -61,7 +61,7 @@ function LanguageSelect() {
                       disabled
                       className="bg-gray-300/50 text-gray-500 dark:text-white py-2 my-1"
                     >
-                      {LanguagesSupportedMap[language]} (PRO)
+                      {LanguagesSupportedMap[language]} (Pro)
                     </SelectItem>
                   </Link>
                 ))}
