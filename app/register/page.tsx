@@ -1,4 +1,4 @@
-import { authOptions } from "@/auth";
+import { authOptions } from "@/lib/auth";
 import CardContainer from "@/components/CardContainer";
 import { getServerSession } from "next-auth";
 import React from "react";

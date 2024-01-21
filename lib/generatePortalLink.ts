@@ -1,10 +1,10 @@
 "use server";
 
-import { authOptions } from "@/auth";
+import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import Stripe from "stripe";
 import { headers } from "next/headers";
-import { adminDB } from "@/firebase-admin";
+import { adminDB } from "@/lib/firebase/firebase-admin";
 import { redirect } from "next/navigation";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {

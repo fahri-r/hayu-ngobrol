@@ -1,4 +1,4 @@
-import generatePortalLink from "@/actions/generatePortalLink";
+import generatePortalLink from "@/lib/generatePortalLink";
 import React from "react";
 
 function ManageAccountButton() {

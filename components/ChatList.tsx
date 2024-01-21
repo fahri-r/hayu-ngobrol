@@ -1,4 +1,4 @@
-import { authOptions } from "@/auth";
+import { authOptions } from "@/lib/auth";
 import { chatMembersCollectionGroupRef } from "@/lib/converters/ChatMembers";
 import { getDocs } from "firebase/firestore";
 import { getServerSession } from "next-auth";

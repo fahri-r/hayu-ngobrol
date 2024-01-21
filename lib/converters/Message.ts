@@ -1,4 +1,4 @@
-import { db } from "@/firebase";
+import { db } from "@/lib/firebase/firebase";
 import { LanguagesSupported } from "@/store/store";
 import {
   DocumentData,

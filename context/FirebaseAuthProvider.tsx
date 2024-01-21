@@ -1,6 +1,6 @@
 "use client";
 
-import { auth } from "@/firebase";
+import { auth } from "@/lib/firebase/firebase";
 import { signInWithCustomToken } from "firebase/auth";
 import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
