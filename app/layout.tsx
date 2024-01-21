@@ -7,6 +7,20 @@ import SubscriptionProvider from "@/common/context/SubscriptionProvider";
 import { Toaster } from "@/common/components/ui/toaster";
 import ChatConfig from "@/chat.config";
 import Navbar from "@/common/components/Navbar";
+import { Poppins, Kanit } from "next/font/google";
+import { cn } from "@/common/lib/utils";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-default",
+});
+
+const kanit = Kanit({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: ChatConfig.TITLE,
@@ -21,7 +35,13 @@ export default function RootLayout({
   return (
     <ClientProvider>
       <html lang="en">
-        <body className="flex flex-col min-h-screen">
+        <body
+          className={cn(
+            "flex flex-col min-h-screen",
+            poppins.variable,
+            kanit.variable
+          )}
+        >
           <FirebaseAuthProvider>
             <SubscriptionProvider>
               <ThemeProvider
