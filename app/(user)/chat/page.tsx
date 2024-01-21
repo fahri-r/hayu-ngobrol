@@ -1,8 +1,5 @@
-import { authOptions } from "@/auth";
 import ChatList from "@/components/ChatList";
-import { chatMembersCollectionGroupRef } from "@/lib/converters/ChatMembers";
-import { getDocs } from "firebase/firestore";
-import { getServerSession } from "next-auth";
+import ChatPermissionError from "@/components/ChatPermissionError";
 import React from "react";
 
 type ChatsPageProps = {
@@ -15,6 +12,11 @@ type ChatsPageProps = {
 async function ChatsPage({ searchParams: { error } }: ChatsPageProps) {
   return (
     <div>
+      {error && (
+        <div className="m-2">
+          <ChatPermissionError />
+        </div>
+      )}
       <ChatList />
     </div>
   );
