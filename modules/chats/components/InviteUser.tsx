@@ -19,13 +19,21 @@ import {
 } from "../../../common/components/ui/dialog";
 import { Button } from "../../../common/components/ui/button";
 import { PlusCircleIcon } from "lucide-react";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "../../../common/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "../../../common/components/ui/form";
 import { Input } from "../../../common/components/ui/input";
 import { getDocs, serverTimestamp, setDoc } from "firebase/firestore";
-import { addChatRef, chatMembersRef } from "@/common/lib/converters/ChatMembers";
+import {
+  addChatRef,
+  chatMembersRef,
+} from "@/common/lib/converters/ChatMembers";
 import { ToastAction } from "../../../common/components/ui/toast";
 import { getUserByEmailRef } from "@/common/lib/converters/User";
-import ShareLink from "./ShareLink";
 
 const formSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -40,7 +48,6 @@ function InviteUser({ chatId }: { chatId: string }) {
   console.log(adminId);
 
   const [open, setOpen] = useState(false);
-  const [openInviteLink, setOpenInviteLink] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -109,8 +116,6 @@ function InviteUser({ chatId }: { chatId: string }) {
             className: "bg-green-600 text-white",
             duration: 3000,
           });
-
-          setOpenInviteLink(true);
         })
         .catch(() => {
           toast({
@@ -170,12 +175,6 @@ function InviteUser({ chatId }: { chatId: string }) {
             </Form>
           </DialogContent>
         </Dialog>
-
-        <ShareLink
-          isOpen={openInviteLink}
-          setIsOpen={setOpenInviteLink}
-          chatId={chatId}
-        />
       </>
     )
   );

@@ -15,5 +15,5 @@ export default process.env.NODE_ENV === "development"
     });
 
 export const config = {
-  matcher: ["/chat", "/chat/:id*", "/register"],
+  matcher: ["/chat", "/register"],
 };

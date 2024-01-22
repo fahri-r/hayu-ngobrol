@@ -10,8 +10,11 @@ import React from "react";
 import { MessageSquare } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
 import ChatListRow from "./ChatListRow";
+import { useHooks } from "@/common/context/Provider";
+import ChatDetail from "./ChatDetail";
 
 function ChatListRows({ initialChats }: { initialChats: ChatMembers[] }) {
+  const { selectedChat } = useHooks();
   const { data: session } = useSession();
   const [members, loading, error] = useCollectionData<ChatMembers>(
     session && chatMembersCollectionGroupRef(session?.user.id!),
@@ -33,10 +36,19 @@ function ChatListRows({ initialChats }: { initialChats: ChatMembers[] }) {
     );
 
   return (
-    <div>
-      {members?.map((member, i) => (
-        <ChatListRow key={member.chatId} chatId={member.chatId} />
-      ))}
+    <div className="flex flex-1">
+      <div className="flex flex-col">
+        {members?.map((member, i) => (
+          <ChatListRow key={member.chatId} chatId={member.chatId} />
+        ))}
+      </div>
+      <div className="flex flex-1">
+        {selectedChat && (
+          <div className="flex flex-col grow">
+            <ChatDetail />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -4,14 +4,14 @@ import React from "react";
 
 function Chats({ error }: { error: string }) {
   return (
-    <div>
+    <>
       {error && (
         <div className="m-2">
           <ChatPermissionError />
         </div>
       )}
       <ChatList />
-    </div>
+    </>
   );
 }
 

@@ -1,16 +1,15 @@
-"use client";
 import React from "react";
 import { Message } from "@/common/lib/converters/Message";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { limitedSortedMessagesRef } from "@/common/lib/converters/Message";
 import { Skeleton } from "../../../common/components/ui/skeleton";
-import { useRouter } from "next/navigation";
 import UserAvatar from "../../../common/components/UserAvatar";
 import { useSession } from "next-auth/react";
 import { useLanguageStore } from "@/common/store/store";
+import { useHooks } from "@/common/context/Provider";
 
 function ChatListRow({ chatId }: { chatId: string }) {
-  const router = useRouter();
+  const { setSelectedChat } = useHooks();
   const { data: session } = useSession();
 
   const language = useLanguageStore((state) => state.language);
@@ -26,7 +25,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
   const row = (message?: Message) => (
     <div
       key={chatId}
-      onClick={() => router.push(`/chat/${chatId}`)}
+      onClick={() => setSelectedChat(chatId)}
       className="flex p-5 items-center space-x-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700"
     >
       <UserAvatar

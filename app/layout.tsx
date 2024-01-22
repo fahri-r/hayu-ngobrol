@@ -9,6 +9,7 @@ import ChatConfig from "@/chat.config";
 import Navbar from "@/common/components/Navbar";
 import { Poppins, Kanit } from "next/font/google";
 import { cn } from "@/common/lib/utils";
+import Provider from "@/common/context/Provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,31 +34,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClientProvider>
-      <html lang="en">
-        <body
-          className={cn(
-            "flex flex-col min-h-screen",
-            poppins.variable,
-            kanit.variable
-          )}
-        >
-          <FirebaseAuthProvider>
-            <SubscriptionProvider>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange
-              >
-                <Navbar />
-                {children}
-                <Toaster />
-              </ThemeProvider>
-            </SubscriptionProvider>
-          </FirebaseAuthProvider>
-        </body>
-      </html>
-    </ClientProvider>
+    <Provider>
+      <ClientProvider>
+        <html lang="en">
+          <body
+            className={cn(
+              "flex flex-col min-h-screen max-h-screen overflow-hidden",
+              poppins.variable,
+              kanit.variable
+            )}
+          >
+            <FirebaseAuthProvider>
+              <SubscriptionProvider>
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
+                >
+                  <Navbar />
+                  {children}
+                  <Toaster />
+                </ThemeProvider>
+              </SubscriptionProvider>
+            </FirebaseAuthProvider>
+          </body>
+        </html>
+      </ClientProvider>
+    </Provider>
   );
 }
