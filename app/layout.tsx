@@ -37,27 +37,23 @@ export default function RootLayout({
     <Provider>
       <ClientProvider>
         <html lang="en">
-          <body
-            className={cn(
-              "flex flex-col min-h-screen max-h-screen overflow-hidden max-w-7xl mx-auto",
-              poppins.variable,
-              kanit.variable
-            )}
-          >
-            <FirebaseAuthProvider>
-              <SubscriptionProvider>
-                <ThemeProvider
-                  attribute="class"
-                  defaultTheme="system"
-                  enableSystem
-                  disableTransitionOnChange
-                >
-                  <Navbar />
-                  {children}
-                  <Toaster />
-                </ThemeProvider>
-              </SubscriptionProvider>
-            </FirebaseAuthProvider>
+          <body className={cn(poppins.variable, kanit.variable)}>
+            <div className="flex flex-col min-h-screen max-h-screen overflow-hidden max-w-7xl mx-auto">
+              <FirebaseAuthProvider>
+                <SubscriptionProvider>
+                  <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                  >
+                    <Navbar />
+                    {children}
+                    <Toaster />
+                  </ThemeProvider>
+                </SubscriptionProvider>
+              </FirebaseAuthProvider>
+            </div>
           </body>
         </html>
       </ClientProvider>
