@@ -6,7 +6,7 @@ import FirebaseAuthProvider from "@/common/context/FirebaseAuthProvider";
 import SubscriptionProvider from "@/common/context/SubscriptionProvider";
 import { Toaster } from "@/common/components/ui/toaster";
 import ChatConfig from "@/chat.config";
-import Navbar from "@/common/components/Navbar";
+import Navbar from "@/common/components/navbar/Navbar";
 import { Poppins, Kanit } from "next/font/google";
 import { cn } from "@/common/lib/utils";
 import Provider from "@/common/context/Provider";

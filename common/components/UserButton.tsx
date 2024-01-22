@@ -17,12 +17,17 @@ import { useSubscriptionStore } from "@/common/store/store";
 import LoadingSpinner from "./LoadingSpinner";
 import { StarIcon } from "lucide-react";
 import ManageAccountButton from "./ManageAccountButton";
+import { useRouter } from "next/navigation";
+import useIsMobile from "../hooks/useIsMobile";
 
 interface UserButtonProps {
   session: Session | null;
 }
 
 function UserButton({ session }: UserButtonProps) {
+  const isMobile = useIsMobile();
+  const router = useRouter();
+
   const subscription = useSubscriptionStore((state) => state.subscription);
 
   if (!session)
@@ -57,6 +62,11 @@ function UserButton({ session }: UserButtonProps) {
               <ManageAccountButton />
             </DropdownMenuItem>
           </>
+        )}
+        {isMobile && (
+          <DropdownMenuItem onClick={() => router.push("/chat")}>
+            Chats
+          </DropdownMenuItem>
         )}
         <DropdownMenuItem onClick={() => signOut()}>Sign Out</DropdownMenuItem>
       </DropdownMenuContent>

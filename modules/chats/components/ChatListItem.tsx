@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 import { useLanguageStore } from "@/common/store/store";
 import { useRouter } from "next/navigation";
 
-function ChatListRow({ chatId }: { chatId: string }) {
+function ChatListItem({ chatId }: { chatId: string }) {
   const router = useRouter();
   const { data: session } = useSession();
 
@@ -74,4 +74,4 @@ function ChatListRow({ chatId }: { chatId: string }) {
   );
 }
 
-export default ChatListRow;
+export default ChatListItem;

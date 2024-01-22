@@ -5,7 +5,7 @@ import { getDocs } from "firebase/firestore";
 import { chatMembersCollectionGroupRef } from "@/common/lib/converters/ChatMembers";
 import { authOptions } from "@/common/lib/auth";
 import ChatDetail from "./ChatDetail";
-import ChatListRows from "./ChatListRows";
+import ChatList from "./ChatList";
 
 async function Chats({ error, chatId }: { error: string; chatId: string }) {
   const session = await getServerSession(authOptions);
@@ -27,7 +27,7 @@ async function Chats({ error, chatId }: { error: string; chatId: string }) {
       )}
 
       <div className="flex flex-1">
-        <ChatListRows initialChats={initialChats} />
+        <ChatList initialChats={initialChats} />
         {chatId && <ChatDetail chatId={chatId} />}
       </div>
     </>

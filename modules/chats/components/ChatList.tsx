@@ -9,9 +9,15 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import React from "react";
 import { MessageSquare } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
-import ChatListRow from "./ChatListRow";
+import ChatListItem from "./ChatListItem";
+import useIsMobile from "@/common/hooks/useIsMobile";
+import { useSearchParams } from "next/navigation";
+import { cn } from "@/common/lib/utils";
 
-function ChatListRows({ initialChats }: { initialChats: ChatMembers[] }) {
+function ChatList({ initialChats }: { initialChats: ChatMembers[] }) {
+  const isMobile = useIsMobile();
+  const searchParams = useSearchParams();
+
   const { data: session } = useSession();
   const [members, loading, error] = useCollectionData<ChatMembers>(
     session && chatMembersCollectionGroupRef(session?.user.id!),
@@ -33,14 +39,24 @@ function ChatListRows({ initialChats }: { initialChats: ChatMembers[] }) {
     );
 
   return (
-    <div className="flex flex-col">
+    <div
+      className={cn("flex flex-col", {
+        hidden: searchParams.has("chatId") && isMobile,
+        "flex-1": !searchParams.has("chatId") && isMobile,
+      })}
+    >
       <div className="flex flex-col overflow-y-scroll grow basis-0">
         {members?.map((member, i) => (
-          <ChatListRow key={member.chatId} chatId={member.chatId} />
+          <ChatListItem key={member.chatId} chatId={member.chatId} />
         ))}
       </div>
+      {isMobile && (
+        <div className="absolute bottom-[5%] right-[2%]">
+          <CreateChatButton isLarge />
+        </div>
+      )}
     </div>
   );
 }
 
-export default ChatListRows;
+export default ChatList;
