@@ -6,10 +6,10 @@ import { Skeleton } from "../../../common/components/ui/skeleton";
 import UserAvatar from "../../../common/components/UserAvatar";
 import { useSession } from "next-auth/react";
 import { useLanguageStore } from "@/common/store/store";
-import { useHooks } from "@/common/context/Provider";
+import { useRouter } from "next/navigation";
 
 function ChatListRow({ chatId }: { chatId: string }) {
-  const { setSelectedChat } = useHooks();
+  const router = useRouter();
   const { data: session } = useSession();
 
   const language = useLanguageStore((state) => state.language);
@@ -25,7 +25,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
   const row = (message?: Message) => (
     <div
       key={chatId}
-      onClick={() => setSelectedChat(chatId)}
+      onClick={() => router.push(`/chat?chatId=${chatId}`)}
       className="flex p-5 items-center space-x-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700"
     >
       <UserAvatar

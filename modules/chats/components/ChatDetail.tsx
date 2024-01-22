@@ -1,48 +1,34 @@
-"use client";
-
 import AdminControls from "@/modules/chats/components/AdminControls";
 import ChatInput from "@/modules/chats/components/ChatInput";
 import ChatMembersBadges from "@/modules/chats/components/ChatMembersBadges";
 import ChatMessages from "@/modules/chats/components/ChatMessages";
-import { authOptions } from "@/common/lib/auth";
-import { chatMembersRef } from "@/common/lib/converters/ChatMembers";
-import { Message, sortedMessagesRef } from "@/common/lib/converters/Message";
+import React from "react";
 import { getDocs } from "firebase/firestore";
+import { sortedMessagesRef } from "@/common/lib/converters/Message";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
-import { useHooks } from "@/common/context/Provider";
+import { authOptions } from "@/common/lib/auth";
 
-function ChatDetail() {
-  const { data: session } = useSession();
-  const { selectedChat } = useHooks();
-  const [initialMessages, setInitialMessages] = useState<Message[]>([]);
+async function ChatDetail({ chatId }: { chatId: string }) {
+  const session = await getServerSession(authOptions);
 
-  useEffect(() => {
-    if (selectedChat) {
-      const getInitialMessages = async () => {
-        const messages = (
-          await getDocs(sortedMessagesRef(selectedChat))
-        ).docs.map((doc) => doc.data());
-        setInitialMessages(messages);
-      };
-      getInitialMessages();
-    }
-  }, [selectedChat]);
+  const initialMessages = (await getDocs(sortedMessagesRef(chatId))).docs.map(
+    (doc) => doc.data()
+  );
 
   return (
-    <div className="flex flex-col overflow-y-scroll grow basis-0">
-      <AdminControls chatId={selectedChat} />
-      <ChatMembersBadges chatId={selectedChat} />
-      <div className="flex-1">
-        <ChatMessages
-          chatId={selectedChat}
-          session={session}
-          initialMessages={initialMessages}
-        />
+    <div className="flex flex-col grow">
+      <div className="flex flex-col overflow-y-scroll grow basis-0">
+        <AdminControls chatId={chatId} />
+        <ChatMembersBadges chatId={chatId} />
+        <div className="flex-1">
+          <ChatMessages
+            chatId={chatId}
+            session={session}
+            initialMessages={initialMessages}
+          />
+        </div>
+        <ChatInput chatId={chatId} />
       </div>
-      <ChatInput chatId={selectedChat} />
     </div>
   );
 }

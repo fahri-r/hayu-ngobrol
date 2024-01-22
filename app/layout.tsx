@@ -39,7 +39,7 @@ export default function RootLayout({
         <html lang="en">
           <body
             className={cn(
-              "flex flex-col min-h-screen max-h-screen overflow-hidden",
+              "flex flex-col min-h-screen max-h-screen overflow-hidden max-w-7xl mx-auto",
               poppins.variable,
               kanit.variable
             )}

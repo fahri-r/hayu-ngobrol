@@ -67,6 +67,18 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-2xl bg-neutral-700;
+  }
+
   * {
     @apply border-border;
   }

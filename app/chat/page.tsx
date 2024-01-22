@@ -7,6 +7,7 @@ type ChatsPageProps = {
   params: {};
   searchParams: {
     error: string;
+    chatId: string;
   };
 };
 
@@ -14,8 +15,8 @@ export const metadata: Metadata = {
   title: `Chats - ${ChatConfig.TITLE}`,
 };
 
-function ChatsPage({ searchParams: { error } }: ChatsPageProps) {
-  return <Chats error={error} />;
+function ChatsPage({ searchParams: { error, chatId } }: ChatsPageProps) {
+  return <Chats error={error} chatId={chatId} />;
 }
 
 export default ChatsPage;
