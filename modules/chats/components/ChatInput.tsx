@@ -115,7 +115,7 @@ function ChatInput({ chatId }: { chatId: string }) {
           />
           <Button
             type="submit"
-            className="bg-violet-600 text-white rounded-full"
+            className="bg-emerald-600 hover:bg-emerald-500 text-white rounded-full"
             size={"icon"}
           >
             <Send />

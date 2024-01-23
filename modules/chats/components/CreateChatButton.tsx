@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "../../../common/components/ui/button";
+import { Button, ButtonProps } from "../../../common/components/ui/button";
 import { MessageSquarePlusIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -17,7 +17,15 @@ import {
 import { ToastAction } from "@radix-ui/react-toast";
 import { useHooks } from "@/common/context/Provider";
 
-function CreateChatButton({ isLarge = false }: { isLarge?: boolean }) {
+function CreateChatButton({
+  isLarge = false,
+  variant,
+  className,
+}: {
+  isLarge?: boolean;
+  variant?: any;
+  className?: string;
+}) {
   const { setSelectedChat } = useHooks();
   const { data: session } = useSession();
   const router = useRouter();
@@ -99,7 +107,11 @@ function CreateChatButton({ isLarge = false }: { isLarge?: boolean }) {
     );
 
   return (
-    <Button variant={"ghost"} onClick={createNewChat}>
+    <Button
+      variant={variant || "ghost"}
+      onClick={createNewChat}
+      className={className}
+    >
       <MessageSquarePlusIcon />
     </Button>
   );

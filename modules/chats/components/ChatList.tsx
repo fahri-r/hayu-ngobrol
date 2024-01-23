@@ -28,7 +28,14 @@ function ChatList({ initialChats }: { initialChats: ChatMembers[] }) {
 
   if (members?.length === 0)
     return (
-      <div className="flex flex-col justify-center items-center pt-40 space-y-2">
+      <div
+        className={cn(
+          "flex flex-col justify-center items-center pt-40 space-y-2",
+          {
+            "text-center": isMobile,
+          }
+        )}
+      >
         <MessageSquare className="h-10 w-10" />
         <h1 className="text-5xl font-extralight">Welcome</h1>
         <h2 className="pb-10">
@@ -40,10 +47,13 @@ function ChatList({ initialChats }: { initialChats: ChatMembers[] }) {
 
   return (
     <div
-      className={cn("flex flex-col bg-white dark:bg-butterfly-bush-800 rounded-3xl overflow-hidden", {
-        hidden: searchParams.has("chatId") && isMobile,
-        "flex-1": !searchParams.has("chatId") && isMobile,
-      })}
+      className={cn(
+        "flex flex-col bg-white dark:bg-butterfly-bush-800 rounded-3xl overflow-hidden",
+        {
+          hidden: searchParams.has("chatId") && isMobile,
+          "flex-1": !searchParams.has("chatId") && isMobile,
+        }
+      )}
     >
       <div className="flex flex-col overflow-y-scroll grow basis-0">
         {members?.map((member, i) => (
@@ -52,7 +62,10 @@ function ChatList({ initialChats }: { initialChats: ChatMembers[] }) {
       </div>
       {isMobile && (
         <div className="absolute bottom-[5%] right-[2%]">
-          <CreateChatButton isLarge />
+          <CreateChatButton
+            variant={"icon"}
+            className="bg-green-600 hover:bg-green-500 text-white rounded-full h-14 w-14"
+          />
         </div>
       )}
     </div>

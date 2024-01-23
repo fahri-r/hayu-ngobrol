@@ -168,7 +168,7 @@ function InviteUser({ chatId }: { chatId: string }) {
                     </FormItem>
                   )}
                 />
-                <Button className="ml-auto sm:w-fit w-full" type="submit">
+                <Button className="ml-auto sm:w-fit w-full bg-green-600 hover:bg-green-500" type="submit">
                   Add To Chat
                 </Button>
               </form>
