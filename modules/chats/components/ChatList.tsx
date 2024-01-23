@@ -50,6 +50,7 @@ function ChatList({ initialChats }: { initialChats: ChatMembers[] }) {
       className={cn(
         "flex flex-col bg-white dark:bg-butterfly-bush-800 rounded-3xl overflow-hidden",
         {
+          "max-w-sm": !isMobile,
           hidden: searchParams.has("chatId") && isMobile,
           "flex-1": !searchParams.has("chatId") && isMobile,
         }

@@ -19,6 +19,7 @@ import { StarIcon } from "lucide-react";
 import ManageAccountButton from "./ManageAccountButton";
 import { useRouter } from "next/navigation";
 import useIsMobile from "../hooks/useIsMobile";
+import Link from "next/link";
 
 interface UserButtonProps {
   session: Session | null;
@@ -68,6 +69,15 @@ function UserButton({ session }: UserButtonProps) {
             Chats
           </DropdownMenuItem>
         )}
+        <DropdownMenuItem onClick={() => router.push("/chat")}>
+          <Link
+            href={"https://github.com/fahri-r/hayu-ngobrol"}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Source
+          </Link>
+        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>Sign Out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
