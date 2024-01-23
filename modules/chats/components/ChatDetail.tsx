@@ -16,7 +16,7 @@ async function ChatDetail({ chatId }: { chatId: string }) {
   );
 
   return (
-    <div className="flex flex-col grow bg-white dark:bg-butterfly-bush-800 rounded-3xl">
+    <div className="flex flex-col grow bg-white dark:bg-butterfly-bush-800 rounded-3xl overflow-hidden">
       <div className="flex flex-col overflow-y-scroll grow basis-0">
         <AdminControls chatId={chatId} />
         <ChatMembersBadges chatId={chatId} />

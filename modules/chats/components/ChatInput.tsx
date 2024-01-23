@@ -5,7 +5,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "../../../common/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "../../../common/components/ui/form";
 import { Button } from "../../../common/components/ui/button";
 import { Input } from "../../../common/components/ui/input";
 import {
@@ -18,6 +24,7 @@ import { useRouter } from "next/navigation";
 import { useToast } from "../../../common/components/ui/use-toast";
 import { useSubscriptionStore } from "@/common/store/store";
 import { ToastAction } from "../../../common/components/ui/toast";
+import { PlaneIcon, Send } from "lucide-react";
 
 const formSchema = z.object({
   input: z.string().max(1000),
@@ -88,7 +95,7 @@ function ChatInput({ chatId }: { chatId: string }) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex space-x-2 p-2 rounded-b-3xl max-w-4xl mx-auto bg-white dark:bg-slate-800"
+          className="flex space-x-2 p-2 rounded-b-3xl max-w-4xl mx-auto bg-slate-200 dark:bg-butterfly-bush-700"
         >
           <FormField
             control={form.control}
@@ -106,8 +113,12 @@ function ChatInput({ chatId }: { chatId: string }) {
               </FormItem>
             )}
           />
-          <Button type="submit" className="bg-violet-600 text-white">
-            Send
+          <Button
+            type="submit"
+            className="bg-violet-600 text-white rounded-full"
+            size={"icon"}
+          >
+            <Send />
           </Button>
         </form>
       </Form>
