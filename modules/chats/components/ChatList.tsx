@@ -30,7 +30,7 @@ function ChatList({ initialChats }: { initialChats: ChatMembers[] }) {
     return (
       <div
         className={cn(
-          "flex flex-col justify-center items-center pt-40 space-y-2",
+          "flex flex-col bg-white dark:bg-butterfly-bush-800 rounded-3xl justify-center items-center pt-40 space-y-2 px-5",
           {
             "text-center": isMobile,
           }
