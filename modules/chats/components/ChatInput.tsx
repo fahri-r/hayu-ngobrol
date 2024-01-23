@@ -84,11 +84,11 @@ function ChatInput({ chatId }: { chatId: string }) {
     form.reset();
   };
   return (
-    <div className="sticky bottom-0">
+    <div className="">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex space-x-2 p-2 rounded-t-xl max-w-4xl mx-auto bg-white border dark:bg-slate-800"
+          className="flex space-x-2 p-2 rounded-b-3xl max-w-4xl mx-auto bg-white dark:bg-slate-800"
         >
           <FormField
             control={form.control}

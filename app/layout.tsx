@@ -37,7 +37,13 @@ export default function RootLayout({
     <Provider>
       <ClientProvider>
         <html lang="en">
-          <body className={cn(poppins.variable, kanit.variable)}>
+          <body
+            className={cn(
+              "bg-slate-100 dark:bg-butterfly-bush-900",
+              poppins.variable,
+              kanit.variable
+            )}
+          >
             <div className="flex flex-col min-h-screen max-h-screen overflow-hidden max-w-7xl mx-auto">
               <FirebaseAuthProvider>
                 <SubscriptionProvider>

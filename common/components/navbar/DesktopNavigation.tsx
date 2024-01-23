@@ -11,7 +11,7 @@ import UserButton from "../UserButton";
 function DesktopNavigation() {
   const { data: session } = useSession();
   return (
-    <nav className="flex flex-row gap-0 items-center p-5 bg-white dark:bg-gray-900 max-w-7xl mx-auto">
+    <nav className="flex flex-row gap-0 items-center p-5 max-w-7xl mx-auto">
       <Link href={"/"}>
         <h1 className="font-bold text-3xl">{ChatConfig.TITLE}</h1>
       </Link>

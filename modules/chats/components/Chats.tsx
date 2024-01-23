@@ -26,7 +26,7 @@ async function Chats({ error, chatId }: { error: string; chatId: string }) {
         </div>
       )}
 
-      <div className="flex flex-1">
+      <div className="flex flex-1 gap-10 pb-10">
         <ChatList initialChats={initialChats} />
         {chatId && <ChatDetail chatId={chatId} />}
       </div>

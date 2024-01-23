@@ -21,7 +21,7 @@ function Navbar() {
     <header
       className={`${
         isChatPage ? "" : "sticky"
-      } top-0 z-50 bg-white dark:bg-gray-900`}
+      } top-0 z-50 bg-slate-100  dark:bg-butterfly-bush-900`}
     >
       {isMobile ? <MobileNavigation /> : <DesktopNavigation />}
       <UpgradeBanner />

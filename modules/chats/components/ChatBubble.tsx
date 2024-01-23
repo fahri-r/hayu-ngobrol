@@ -14,11 +14,11 @@ const bubble = tv({
   variants: {
     variant: {
       sender: {
-        base: "ml-auto bg-[#4D426D] dark:bg-[#EFA985] text-white rounded-tr-none",
+        base: "ml-auto bg-butterfly-bush-900 dark:bg-hit-pink-300 text-white rounded-tr-none",
         text: "text-right",
       },
       receiver: {
-        base: "text-black bg-[#F5F7FB] dark:text-white dark:bg-[#4D426D] rounded-tl-none",
+        base: "text-black bg-slate-100 dark:text-white dark:bg-butterfly-bush-900 rounded-tl-none",
         text: "text-left",
         avatar: "-order-1",
       },

@@ -40,7 +40,7 @@ function ChatList({ initialChats }: { initialChats: ChatMembers[] }) {
 
   return (
     <div
-      className={cn("flex flex-col", {
+      className={cn("flex flex-col bg-white dark:bg-butterfly-bush-800 rounded-3xl overflow-hidden", {
         hidden: searchParams.has("chatId") && isMobile,
         "flex-1": !searchParams.has("chatId") && isMobile,
       })}

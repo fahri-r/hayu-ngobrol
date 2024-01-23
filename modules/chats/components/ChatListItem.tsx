@@ -6,11 +6,13 @@ import { Skeleton } from "../../../common/components/ui/skeleton";
 import UserAvatar from "../../../common/components/UserAvatar";
 import { useSession } from "next-auth/react";
 import { useLanguageStore } from "@/common/store/store";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { cn } from "@/common/lib/utils";
 
 function ChatListItem({ chatId }: { chatId: string }) {
   const router = useRouter();
   const { data: session } = useSession();
+  const searchParams = useSearchParams();
 
   const language = useLanguageStore((state) => state.language);
 
@@ -24,9 +26,14 @@ function ChatListItem({ chatId }: { chatId: string }) {
 
   const row = (message?: Message) => (
     <div
-      key={chatId}
       onClick={() => router.push(`/chat?chatId=${chatId}`)}
-      className="flex p-5 items-center space-x-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700"
+      className={cn(
+        "flex p-5 items-center space-x-2 cursor-pointer hover:bg-slate-200 dark:hover:bg-butterfly-bush-700",
+        {
+          "bg-slate-200 dark:bg-butterfly-bush-700":
+            searchParams.get("chatId") == chatId,
+        }
+      )}
     >
       <UserAvatar
         name={message?.user.name || session?.user.name}
@@ -40,10 +47,9 @@ function ChatListItem({ chatId }: { chatId: string }) {
               .toString()
               .split(" ")[0]
           }
-          <p className="text-gray-400 line-clamp-1">
-            {message?.translated?.[language] ||
-              "Get the conversation started..."}
-          </p>
+        </p>
+        <p className="text-gray-400 line-clamp-1">
+          {message?.translated?.[language] || "Get the conversation started..."}
         </p>
       </div>
 
