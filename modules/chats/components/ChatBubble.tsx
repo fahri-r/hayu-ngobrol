@@ -1,13 +1,15 @@
 import LoadingSpinner from "@/common/components/LoadingSpinner";
 import UserAvatar from "@/common/components/UserAvatar";
 import { Message } from "@/common/lib/converters/Message";
+import { isValidHttpUrl } from "@/common/lib/isValidHttpUrl";
 import { useLanguageStore } from "@/common/store/store";
+import Link from "next/link";
 import React, { ComponentProps } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const bubble = tv({
   slots: {
-    base: "flex flex-col relative space-y-2 p-4 w-fit line-clamp-1 mx-2 rounded-2xl",
+    base: "flex flex-col relative space-y-2 p-4 w-fit line-clamp-1 mx-2 rounded-2xl max-w-md",
     text: "text-xs italic font-extralight line-clamp-1",
     avatar: "",
   },
@@ -52,7 +54,18 @@ function ChatBubble({
       <div className={base()}>
         <p className={text()}>{message.user.name.split(" ")[0]}</p>
         <div className="flex space-x-2">
-          <p>{message.translated?.[language] || message.input}</p>
+          {isValidHttpUrl(message.translated?.[language] || message.input) ? (
+            <Link
+              href={message.translated?.[language] || message.input}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="text-sky-400 dark:text-sky-800 hover:underline"
+            >
+              {message.translated?.[language] || message.input}
+            </Link>
+          ) : (
+            <p>{message.translated?.[language] || message.input}</p>
+          )}
           {!message.translated && <LoadingSpinner />}
         </div>
       </div>
