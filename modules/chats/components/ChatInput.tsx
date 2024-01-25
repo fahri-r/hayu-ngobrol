@@ -97,6 +97,7 @@ function ChatInput({ chatId }: { chatId: string }) {
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex space-x-2 p-2 rounded-b-3xl max-w-4xl mx-auto bg-slate-200 dark:bg-butterfly-bush-700"
+          autoComplete="off"
         >
           <FormField
             control={form.control}
