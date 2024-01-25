@@ -39,7 +39,7 @@ function ChatListItem({ chatId }: { chatId: string }) {
         name={message?.user.name || session?.user.name}
         image={message?.user.image || session?.user.image}
       />
-      <div className="flex-1">
+      <div className="flex-1 truncate">
         <p className="font-bold">
           {!message && "New Chat "}
           {
