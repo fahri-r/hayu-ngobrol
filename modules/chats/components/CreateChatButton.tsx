@@ -15,7 +15,6 @@ import {
   chatMembersCollectionGroupRef,
 } from "@/common/lib/converters/ChatMembers";
 import { ToastAction } from "@radix-ui/react-toast";
-import { useHooks } from "@/common/context/Provider";
 
 function CreateChatButton({
   isLarge = false,
@@ -26,7 +25,6 @@ function CreateChatButton({
   variant?: any;
   className?: string;
 }) {
-  const { setSelectedChat } = useHooks();
   const { data: session } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -83,7 +81,7 @@ function CreateChatButton({
           className: "bg-green-600 text-white",
           duration: 2000,
         });
-        setSelectedChat(chatId);
+        router.push(`/chat?chatId=${chatId}`);
       })
       .catch(() => {
         toast({
